@@ -14,7 +14,7 @@ import kotlinx.serialization.Serializable
  * @property created The timestamp indicating when the location was added to the database.
  */
 @Serializable
-internal data class LocationResponse(
+data class LocationResponse(
     val id: Int,
     val name: String,
     val type: String,

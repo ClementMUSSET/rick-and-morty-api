@@ -1,6 +1,7 @@
 package org.mathieu.domain.models.location
 
 import org.mathieu.domain.models.character.Character
+import org.mathieu.domain.models.locationPreview.LocationPreview
 
 /**
  * Represents a specific location within a universe or dimension.
@@ -16,5 +17,15 @@ data class Location(
     val name: String,
     val type: String,
     val dimension: String,
-    val residents: List<Character>
+    val residents: List<String>
 )
+
+fun Location.toLocationPreview(): LocationPreview
+{
+    return LocationPreview(
+        id = this.id,
+        name = this.name,
+        type = this.type,
+        dimension = this.dimension
+    )
+}

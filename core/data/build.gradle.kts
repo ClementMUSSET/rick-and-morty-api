@@ -60,4 +60,5 @@ dependencies {
 
     //Realm
     implementation("io.realm.kotlin:library-base:$realmVersion")
+    implementation("androidx.compose.ui:ui-text:1.4.0")
 }

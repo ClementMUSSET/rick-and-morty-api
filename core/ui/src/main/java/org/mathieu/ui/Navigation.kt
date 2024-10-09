@@ -20,6 +20,13 @@ sealed class Destination(val route: String, val arguments: List<NamedNavArgument
             route = "characterDetail/$characterId",
             arguments = listOf(navArgument("characterId") { type = NavType.IntType })
         )
+
+    object Locations: Destination(route = "locations")
+    class LocationDetails(locationId: String = "{locationId}"):
+            Destination(
+                route = "location/$locationId",
+                arguments = listOf(navArgument("locationId") { type = NavType.IntType })
+            )
 }
 
 fun NavGraphBuilder.composable(

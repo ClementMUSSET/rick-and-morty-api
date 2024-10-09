@@ -1,6 +1,7 @@
 package org.mathieu.data.local.objects
 
 import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.annotations.Ignore
 import io.realm.kotlin.types.annotations.PrimaryKey
 import org.mathieu.data.remote.responses.CharacterResponse
 import org.mathieu.data.repositories.tryOrNull
@@ -39,6 +40,7 @@ internal class CharacterObject: RealmObject {
     var locationId: Int = -1
     var image: String = ""
     var created: String = ""
+    @Ignore
     var locationPreview: LocationPreview? = null
 }
 
@@ -56,6 +58,7 @@ internal fun CharacterResponse.toRealmObject() = CharacterObject().also { obj ->
     obj.locationId = tryOrNull { location.url.split("/").last().toInt() } ?: -1
     obj.image = image
     obj.created = created
+    obj.locationPreview = null
 }
 
 internal fun CharacterObject.toModel() = Character(
